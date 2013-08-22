@@ -9,9 +9,6 @@ from openerp import netsvc
 
 
 class sample(osv.osv):
-    """
-    Maintenance Orders
-    """
     _name = 'sample.sampler'
     _description = 'Sample'
     # _inherit = ['mail.thread', 'ir.needaction_mixin']
@@ -31,8 +28,6 @@ class sample(osv.osv):
     }
 
     # _order = ''
-
-
 sample()
 
 
@@ -43,6 +38,5 @@ class product(osv.osv):
     }
 
     # _order = ''
-
 product()
 
