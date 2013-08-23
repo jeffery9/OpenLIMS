@@ -16,7 +16,7 @@ class sample_sample_property(osv.osv):
         'key': fields.char('key', size=64),
         'value': fields.char('Value', size=64),
         'sample_id': fields.many2one('sample.sample', 'Sample',
-                                       required=True),
+                                     required=True),
     }
 
     # _defaults = {}
@@ -31,6 +31,7 @@ class sample_sample_property_key(osv.osv):
 
     _columns = {
         'key': fields.char('key', size=64),
+        'type': fields.char('type', size=64),
         'template_id': fields.many2one('sample.sample.template', 'Template',
                                        required=True),
     }

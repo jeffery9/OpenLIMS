@@ -7,9 +7,11 @@
       <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="Sample">
-          <field name="code"/>
-          <field name="template_id"/>
-          <field name="properties"/>
+          <group>
+            <field name="code"/>
+            <field name="template_id"/>
+            <field name="properties"/>
+          </group>
         </form>
       </field>
     </record>
@@ -20,8 +22,8 @@
       <field name="arch" type="xml">
         <tree string="sample">
           <field name="code"/>
-          <field name="template_id"/>
           <field name="properties"/>
+          <field name="template_id"/>
         </tree>
       </field>
     </record>
@@ -41,8 +43,8 @@
         <form string="Sample template">
           <group colspan="4">
             <field name="name"/>
-            <field name="samples"/>
             <field name="properties"/>
+            <field name="samples"/>
           </group>
         </form>
       </field>
@@ -54,8 +56,8 @@
       <field name="arch" type="xml">
         <tree string="Sample templates">
           <field name="name"/>
-          <field name="samples"/>
           <field name="properties"/>
+          <field name="samples"/>
         </tree>
       </field>
     </record>
@@ -73,9 +75,11 @@
       <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="sample property">
-          <field name="sample_id"/>
-          <field name="key"/>
-          <field name="value"/>
+          <group>
+            <field name="sample_id"/>
+            <field name="key"/>
+            <field name="value"/>
+          </group>
         </form>
       </field>
     </record>
@@ -99,14 +103,17 @@
       <field name="view_id" ref="sample_sample_property_tree_view"/>
     </record>
 
- <record id="sample_sample_property_key_form_view" model="ir.ui.view">
+    <record id="sample_sample_property_key_form_view" model="ir.ui.view">
       <field name="name">sample.sample.property.key.form</field>
       <field name="model">sample.sample.property.key</field>
       <field name="type">form</field>
       <field name="arch" type="xml">
         <form string="sample property key">
-          <field name="template_id"/>
-          <field name="key"/>
+          <group>
+            <field name="key"/>
+            <field name="type"/>
+            <field name="template_id"/>
+          </group>
         </form>
       </field>
     </record>
@@ -116,12 +123,13 @@
       <field name="type">tree</field>
       <field name="arch" type="xml">
         <tree string="Sample property keys">
-          <field name="template_id"/>
           <field name="key"/>
+          <field name="type"/>
         </tree>
       </field>
     </record>
-    <record id="sample_sample_property_key_action" model="ir.actions.act_window">
+    <record id="sample_sample_property_key_action"
+            model="ir.actions.act_window">
       <field name="name">Sample property key</field>
       <field name="res_model">sample.sample.property.key</field>
       <field name="view_type">form</field>
