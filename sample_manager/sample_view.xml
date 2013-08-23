@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <record id="sample_sample_form_view" model="ir.ui.view">
+      <field name="name">sample.sample.form</field>
+      <field name="model">sample.sample</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Sample">
+          <field name="code"/>
+          <field name="template_id"/>
+          <field name="properties"/>
+        </form>
+      </field>
+    </record>
+    <record id="sample_sample_tree_view" model="ir.ui.view">
+      <field name="name">sample.sample.tree</field>
+      <field name="model">sample.sample</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="sample">
+          <field name="code"/>
+          <field name="template_id"/>
+          <field name="properties"/>
+        </tree>
+      </field>
+    </record>
+    <record id="sample_sample_action" model="ir.actions.act_window">
+      <field name="name">Sample</field>
+      <field name="res_model">sample.sample</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="sample_sample_tree_view"/>
+    </record>
+
+    <record id="sample_sample_template_form_view" model="ir.ui.view">
+      <field name="name">sample.sample.template.form</field>
+      <field name="model">sample.sample.template</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="Sample template">
+          <group colspan="4">
+            <field name="name"/>
+            <field name="samples"/>
+            <field name="properties"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    <record id="sample_sample_template_tree_view" model="ir.ui.view">
+      <field name="name">sample.sample.template.tree</field>
+      <field name="model">sample.sample.template</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Sample templates">
+          <field name="name"/>
+          <field name="samples"/>
+          <field name="properties"/>
+        </tree>
+      </field>
+    </record>
+    <record id="sample_sample_template_action" model="ir.actions.act_window">
+      <field name="name">Sample Template</field>
+      <field name="res_model">sample.sample.template</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="sample_sample_template_tree_view"/>
+    </record>
+
+    <record id="sample_sample_property_form_view" model="ir.ui.view">
+      <field name="name">sample.sample.property.form</field>
+      <field name="model">sample.sample.property</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="sample property">
+          <field name="sample_id"/>
+          <field name="key"/>
+          <field name="value"/>
+        </form>
+      </field>
+    </record>
+    <record id="sample_sample_property_tree_view" model="ir.ui.view">
+      <field name="name">sample.sample.property.tree</field>
+      <field name="model">sample.sample.property</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Sample properties">
+          <field name="sample_id"/>
+          <field name="key"/>
+          <field name="value"/>
+        </tree>
+      </field>
+    </record>
+    <record id="sample_sample_property_action" model="ir.actions.act_window">
+      <field name="name">Sample property</field>
+      <field name="res_model">sample.sample.property</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="sample_sample_property_tree_view"/>
+    </record>
+
+ <record id="sample_sample_property_key_form_view" model="ir.ui.view">
+      <field name="name">sample.sample.property.key.form</field>
+      <field name="model">sample.sample.property.key</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+        <form string="sample property key">
+          <field name="template_id"/>
+          <field name="key"/>
+        </form>
+      </field>
+    </record>
+    <record id="sample_sample_property_key_tree_view" model="ir.ui.view">
+      <field name="name">sample.sample.property.key.tree</field>
+      <field name="model">sample.sample.property.key</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree string="Sample property keys">
+          <field name="template_id"/>
+          <field name="key"/>
+        </tree>
+      </field>
+    </record>
+    <record id="sample_sample_property_key_action" model="ir.actions.act_window">
+      <field name="name">Sample property key</field>
+      <field name="res_model">sample.sample.property.key</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="sample_sample_property_key_tree_view"/>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="menu_sample_manager_root"
+              name="Sample Manager"
+              sequence="40"/>
+
+    <menuitem id="menu_sample_manager"
+              name="Sample Manager"
+              parent="menu_sample_manager_root"
+              sequence="10"/>
+
+    <menuitem name="Sample"
+              id="menu_sample_samples"
+              parent="menu_sample_manager"
+              action="sample_sample_action"
+              sequence="10"/>
+
+
+    <menuitem name="Sample property"
+              id="menu_sample_sample_property"
+              parent="menu_sample_manager"
+              action="sample_sample_property_action"
+              sequence="20"/>
+
+    <menuitem name="Sample template"
+              id="menu_sample_sample_templates"
+              parent="menu_sample_manager"
+              action="sample_sample_template_action"
+              sequence="30"/>
+
+    <menuitem name="Sample template property"
+              id="menu_sample_template_templates"
+              parent="menu_sample_manager"
+              action="sample_sample_property_key_action"
+              sequence="30"/>
+
+  </data>
+</openerp>
